@@ -11,12 +11,12 @@ public class Document {
 	private int aadharNo;
 	
 	private String panNo;
-	private boolean verified;
+	private String verified;
 	
 	public Document() {
 		super();
 	}
-	public Document(int aadharNo, String panNo, boolean verified) {
+	public Document(int aadharNo, String panNo, String verified) {
 		super();
 		this.aadharNo = aadharNo;
 		this.panNo = panNo;
@@ -34,10 +34,10 @@ public class Document {
 	public void setPanNo(String panNo) {
 		this.panNo = panNo;
 	}
-	public boolean isVerified() {
+	public String getVerified() {
 		return verified;
 	}
-	public void setVerified(boolean verified) {
+	public void setVerified(String verified) {
 		this.verified = verified;
 	}
 	@Override

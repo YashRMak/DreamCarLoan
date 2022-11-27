@@ -54,6 +54,18 @@ public class DocDaoImpl implements DocDao{
 		return false;
 		}
 	}
-	
+
+	@Override
+	public boolean verification(int aaNo, Document doc) {
+		Document temp=em.find(Document.class, aaNo);
+		temp.setVerified(doc.getVerified());
+		Document d=  em.merge(temp);
+		if(d!=null) {
+			return true;
+		}
+		else {
+		return false;
+		}
+	}
 	
 }

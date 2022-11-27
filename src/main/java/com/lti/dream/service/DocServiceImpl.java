@@ -37,4 +37,10 @@ public class DocServiceImpl implements DocDao{
 		boolean t= dao.updateDoc(aaNo, doc);
 		return t;
 	}
+
+	@Override
+	public boolean verification(int aaNo, Document doc) {
+		boolean f=dao.verification(aaNo, doc);
+		return f;
+	}
 }
