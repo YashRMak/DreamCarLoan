@@ -1,4 +1,4 @@
-package com.lti.cruddemo.beans;
+package com.lti.dream.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

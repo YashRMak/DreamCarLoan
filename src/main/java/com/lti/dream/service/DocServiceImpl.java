@@ -1,12 +1,12 @@
-package com.lti.cruddemo.service;
+package com.lti.dream.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lti.cruddemo.beans.Document;
-import com.lti.cruddemo.dao.DocDao;
+import com.lti.dream.beans.Document;
+import com.lti.dream.dao.DocDao;
 
 @Service("docService")
 public class DocServiceImpl implements DocDao{

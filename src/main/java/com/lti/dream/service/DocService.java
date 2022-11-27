@@ -1,8 +1,8 @@
-package com.lti.cruddemo.service;
+package com.lti.dream.service;
 
 import java.util.List;
 
-import com.lti.cruddemo.beans.Document;
+import com.lti.dream.beans.Document;
 
 public interface DocService {
 	public int addDoc(Document doc);

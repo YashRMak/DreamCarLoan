@@ -1,8 +1,8 @@
-package com.lti.cruddemo.dao;
+package com.lti.dream.dao;
 
 import java.util.List;
 
-import com.lti.cruddemo.beans.Account;
+import com.lti.dream.beans.Account;
 
 
 public interface AccDao {

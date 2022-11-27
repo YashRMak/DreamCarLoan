@@ -1,8 +1,8 @@
-package com.lti.cruddemo.service;
+package com.lti.dream.service;
 
 import java.util.List;
 
-import com.lti.cruddemo.beans.Account;
+import com.lti.dream.beans.Account;
 
 public interface AccService {
 	public int addAcc(Account account);

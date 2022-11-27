@@ -1,4 +1,4 @@
-package com.lti.cruddemo.dao;
+package com.lti.dream.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.cruddemo.beans.Document;
+import com.lti.dream.beans.Document;
 
 @Repository
 public class DocDaoImpl implements DocDao{

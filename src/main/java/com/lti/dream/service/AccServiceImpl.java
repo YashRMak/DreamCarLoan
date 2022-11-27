@@ -1,12 +1,12 @@
-package com.lti.cruddemo.service;
+package com.lti.dream.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lti.cruddemo.beans.Account;
-import com.lti.cruddemo.dao.AccDao;
+import com.lti.dream.beans.Account;
+import com.lti.dream.dao.AccDao;
 
 @Service("accService")
 public class AccServiceImpl implements AccService {
@@ -40,7 +40,7 @@ public class AccServiceImpl implements AccService {
 
 	@Override
 	public void dropAcc(Account acc) {
-		dao.dropAcc(acc);;
+		dao.dropAcc(acc);
 		
 	}
 }
