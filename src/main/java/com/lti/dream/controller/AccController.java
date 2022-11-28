@@ -3,19 +3,9 @@ package com.lti.dream.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lti.dream.beans.Account;
-import com.lti.dream.beans.Employee;
-import com.lti.dream.exception.HrException;
 import com.lti.dream.service.AccServiceImpl;
 
 @CrossOrigin(origins="*")
@@ -43,7 +33,7 @@ public class AccController {
 		return accService.getAllAccounts();
 	}
 	
-	//http:localhost:8989/account/updateacc/{accNo}
+	//http://localhost:8989/account/updateacc/{accNo}
 	@PutMapping("/updateacc/{accNo}")
 	public boolean updateBalance(@PathVariable("accNo") int accNo, @RequestBody Account acc) {
 		return accService.updateBalance(accNo, acc);
@@ -55,5 +45,4 @@ public class AccController {
 //	public void deleteAcc(@PathVariable("accNo") int accNo, @RequestBody Account acc) {
 //		accService.dropAcc(acc);
 //	}
-	
 }

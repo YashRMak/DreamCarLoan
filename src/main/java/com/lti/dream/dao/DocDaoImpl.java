@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.dream.beans.Account;
 import com.lti.dream.beans.Document;
 
 @Repository
@@ -42,9 +43,8 @@ public class DocDaoImpl implements DocDao{
 
 	@Override
 	@Transactional
-	public boolean updateDoc(int aaNo, Document doc) {
+	public boolean updatePAN(int aaNo, Document doc) {
 		Document temp=em.find(Document.class, aaNo);
-		temp.setAadharNo(doc.getAadharNo());
 		temp.setPanNo(doc.getPanNo());
 		Document d= em.merge(temp);
 		if(d!=null) {
@@ -56,11 +56,12 @@ public class DocDaoImpl implements DocDao{
 	}
 
 	@Override
-	public boolean verification(int aaNo, Document doc) {
+	@Transactional
+	public boolean updateVerification(int aaNo, Document doc) {
 		Document temp=em.find(Document.class, aaNo);
 		temp.setVerified(doc.getVerified());
-		Document d=  em.merge(temp);
-		if(d!=null) {
+		Document docx= em.merge(temp);
+		if(docx!=null) {
 			return true;
 		}
 		else {

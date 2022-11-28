@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="documents")
+@Table(name="DOCUMENTS")
 public class Document {
 	@Id
 	private int aadharNo;

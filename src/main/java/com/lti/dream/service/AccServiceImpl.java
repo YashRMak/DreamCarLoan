@@ -41,6 +41,5 @@ public class AccServiceImpl implements AccService {
 	@Override
 	public void dropAcc(Account acc) {
 		dao.dropAcc(acc);
-		
 	}
 }

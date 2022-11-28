@@ -3,18 +3,10 @@ package com.lti.dream.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import com.lti.dream.beans.Document;
-import com.lti.dream.beans.Employee;
-import com.lti.dream.exception.HrException;
 import com.lti.dream.service.DocServiceImpl;
 
 @CrossOrigin(origins="*")
@@ -42,15 +34,15 @@ public class DocController {
 		return docService.getAllDocs();
 	}
 	
-	//http://localhost:8989/documents/updatedoc/{aadharNo}
-	@PutMapping("/updatedoc/{aadharNo}")
-	public boolean updateDoc(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
-		return docService.updateDoc(aadharNo, doc);
+	//http://localhost:8989/document/updatepanno/{aadharNo}
+	@PutMapping("/updatepanno/{aadharNo}")
+	public boolean updatePAN(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
+		return docService.updatePAN(aadharNo, doc);
 	}
 	
-	//http://localhost:8989/documents/verification/{aadharNo}
+	//http://localhost:8989/document/verification/{aadharNo}
 		@PutMapping("/verification/{aadharNo}")
-		public boolean verification(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
-			return docService.verification(aadharNo, doc);
+		public boolean updateVerification(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
+			return docService.updateVerification(aadharNo, doc);
 		}
 }

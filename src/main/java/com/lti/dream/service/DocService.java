@@ -11,7 +11,7 @@ public interface DocService {
 	
 	public List<Document> getAllDocs();
 
-	public boolean updateDoc(int aaNo, Document doc);
+	public boolean updatePAN(int aaNo, Document doc);
 	
-	public boolean verification(int aaNo,Document doc);
+	public boolean updateVerification(int aaNo,Document doc);
 }
