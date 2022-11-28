@@ -12,6 +12,7 @@ import com.lti.dream.service.AccServiceImpl;
 @RestController
 @RequestMapping("/account")
 public class AccController {
+	
 	@Autowired
 	AccServiceImpl accService;
 	

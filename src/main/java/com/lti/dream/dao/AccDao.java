@@ -6,6 +6,7 @@ import com.lti.dream.beans.Account;
 
 
 public interface AccDao {
+	
 	public int addAcc(Account account);
 
 	public Account findAccByNo(int accNo);
