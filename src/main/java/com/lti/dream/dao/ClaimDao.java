@@ -15,6 +15,6 @@ public interface ClaimDao {
 
 	public boolean updateStatus(int appNo, Claim c);
 
-	public Claim deleteClaimByNo(int appNo);
+	public Claim deleteClaim(int appNo);
 	
 }

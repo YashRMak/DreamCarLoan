@@ -56,7 +56,7 @@ public class ClaimDaoImpl implements ClaimDao{
 	
 	@Override
     @Transactional
-    public Claim deleteClaimByNo(int appNo) {
+    public Claim deleteClaim(int appNo) {
         Claim dc = em.find(Claim.class, appNo);
         em.remove(dc);
         return dc;

@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
 
 @Repository
@@ -62,14 +63,13 @@ public class UserDaoImpl implements UserDao {
 		em.merge(tempUser);
 		return true;
 	}
-	
+
 	@Override
-	@Transactional
-	public boolean deleteUserId(int userId, User u ) {
-	    User tempUser=em.find(User.class, userId);
-	    tempUser.setUserId(u.getUserId());
-	    em.merge(tempUser);
-	    em.remove(tempUser);
-	    return true;
-	}
+    @Transactional
+    public User deleteUser(int uId) {
+        User u = em.find(User.class, uId);
+        em.remove(u);
+        return u;
+    }
+	
 }

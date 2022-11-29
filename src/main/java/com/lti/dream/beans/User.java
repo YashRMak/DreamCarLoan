@@ -24,7 +24,18 @@ public class User {
 	@Column(name="DL_NO")
 	private int dlNo;
 
+	public User() {
+		super();
+	}
 
+	public User(int userId, String userPswd, double userSal, int dlNo) {
+		super();
+		this.userId = userId;
+		this.userPswd = userPswd;
+		this.userSal = userSal;
+		this.dlNo = dlNo;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -64,21 +75,9 @@ public class User {
 		this.dlNo = dlNo;
 	}
 
-
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userPswd=" + userPswd + ", userSal=" + userSal + ", dlNo=" + dlNo + "]";
 	}
-
-
-	public User(int userId, String userPswd, double userSal, int dlNo) {
-		super();
-		this.userId = userId;
-		this.userPswd = userPswd;
-		this.userSal = userSal;
-		this.dlNo = dlNo;
-	}
-
-
 
 }

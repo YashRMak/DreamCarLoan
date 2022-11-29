@@ -39,8 +39,8 @@ public class ClaimServiceImpl implements ClaimService{
 	}
 	
 	@Override
-    public Claim deleteClaimByNo(int appNo) {
-        Claim c1=dao.deleteClaimByNo(appNo);
+    public Claim deleteClaim(int appNo) {
+        Claim c1=dao.deleteClaim(appNo);
         return c1;
     }
 }

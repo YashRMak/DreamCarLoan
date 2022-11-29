@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
+import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
 
 import com.lti.dream.dao.UserDao;
@@ -50,4 +50,10 @@ public class UserServiceImpl implements UserService {
 	       List<User> userList = dao.getAllUser();
 	       return userList;
 	}
+	
+	@Override
+    public User deleteUser(int uId) {
+        User u1=dao.deleteUser(uId);
+        return u1;
+    }
 }

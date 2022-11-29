@@ -41,7 +41,7 @@ public class ClaimController {
 	
 	//http://localhost:8989/claims/deleteclaim/{appNo}
 	@DeleteMapping("/deleteclaim/{appNo}")
-	public Claim deleteClaimByNo(@PathVariable("appNo") int appNo) {
-	    return claimService.deleteClaimByNo(appNo);
+	public Claim deleteClaim(@PathVariable("appNo") int appNo) {
+	    return claimService.deleteClaim(appNo);
 	}
 }

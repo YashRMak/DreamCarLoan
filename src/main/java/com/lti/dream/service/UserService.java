@@ -2,8 +2,6 @@ package com.lti.dream.service;
 
 import java.util.List;
 
-
-
 import com.lti.dream.beans.User;
 
 
@@ -19,5 +17,6 @@ public interface UserService {
 	public List<User> getAllUser();
 	
 	public boolean updateSal(int uid,User u);
-
+	
+	public User deleteUser(int uId);
 }
