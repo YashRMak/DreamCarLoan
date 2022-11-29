@@ -45,21 +45,9 @@ public class User {
 	private Account account;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_POLICY")
-	private Policy policy;
-	
-	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="USER_CLAIM")
 	private Claim claim;
 	
-	
-	public Policy getPolicy() {
-		return policy;
-	}
-
-	public void setPolicy(Policy policy) {
-		this.policy = policy;
-	}
 
 	public Claim getClaim() {
 		return claim;

@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,16 +25,8 @@ public class Admin {
 	private String adminPswd;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="CLAIM")
-	private Claim claim;
-
-	public Claim getClaim() {
-		return claim;
-	}
-
-	public void setClaim(Claim claim) {
-		this.claim = claim;
-	}
+	@JoinColumn(name="ADMIN_POLICY")
+	private Policy policy; 
 
 	public Admin() {
 		super();
