@@ -1,8 +1,11 @@
 package com.lti.dream.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,18 @@ public class Admin {
 	
 	@Column(name="ADMIN_PASSWORD")
 	private String adminPswd;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="CLAIM")
+	private Claim claim;
+
+	public Claim getClaim() {
+		return claim;
+	}
+
+	public void setClaim(Claim claim) {
+		this.claim = claim;
+	}
 
 	public Admin() {
 		super();

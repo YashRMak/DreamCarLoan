@@ -1,8 +1,11 @@
 package com.lti.dream.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +19,18 @@ public class Policy {
 	@Column(name="TypeOfPolicy")
 	private String policyType;
 	
-	//private User userID  ;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="POLICY_EMI")
+	private Emi emi;
 
+
+	public Emi getEmi() {
+		return emi;
+	}
+
+	public void setEmi(Emi emi) {
+		this.emi = emi;
+	}
 
 	public Policy() {
 		super();
