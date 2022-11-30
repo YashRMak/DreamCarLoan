@@ -3,6 +3,7 @@ package com.lti.dream.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +19,7 @@ public class Vehicle {
 	 
 	 @Column(name="Vehicle_Price")
 	 private double vPrice;
-
+	 
 	public int getvId() {
 		return vId;
 	}

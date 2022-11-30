@@ -36,11 +36,17 @@ public class UserController   {
         return userService.getAllUser();
     }
 	
-	//http://localhost:8989/user/updateuser/{uId}
-	@PutMapping("/updateuser/{uId}")
+	//http://localhost:8989/user/updateusersal/{uId}
+	@PutMapping("/updateusersal/{uId}")
     public boolean updateSal(@PathVariable("uId") int uId, @RequestBody User u){
         return userService.updateSal(uId, u);
     }
+	
+	//http://localhost:8989/user/updateuserpswd/{uId}
+	@PutMapping("/updateuserpswd/{uId}")
+	public boolean updateUserPswd(@PathVariable("uId") int uId, @RequestBody User u){
+	    return userService.updateUserPswd(uId, u);
+	}
 	
 	//http://localhost:8989/user/deleteuser/{uId}
 	@DeleteMapping("/deleteuser/{uId}")

@@ -26,6 +26,12 @@ public class ClaimServiceImpl implements ClaimService{
 		Claim fc= dao.findClaimByNo(appNo);
 		return fc;
 	}
+	
+	@Override
+	public List<Claim> findClaimbyChosenPol(int cp) {
+		List<Claim> Claim_List = dao.findClaimByChosenPol(cp);
+		return Claim_List;
+	}
 
 	@Override
 	public List<Claim> getAllClaims() {
@@ -43,4 +49,5 @@ public class ClaimServiceImpl implements ClaimService{
         Claim c1=dao.deleteClaim(appNo);
         return c1;
     }
+
 }

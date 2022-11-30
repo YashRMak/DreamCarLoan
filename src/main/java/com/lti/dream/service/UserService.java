@@ -18,5 +18,7 @@ public interface UserService {
 	
 	public boolean updateSal(int uid,User u);
 	
+	public boolean updateUserPswd(int uid,User u);
+	
 	public User deleteUser(int uId);
 }

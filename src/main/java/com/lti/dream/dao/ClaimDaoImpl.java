@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -32,6 +33,16 @@ public class ClaimDaoImpl implements ClaimDao{
 		Claim c= em.find(Claim.class, appNo);
 		return c;
 	}
+	
+	@Override
+	public  List<Claim> findClaimByChosenPol(int cp) {
+		Query q5=em.createQuery("SELECT c FROM Claim c WHERE c.chosenPolicy = :cp",Claim.class);
+		
+		q5.setParameter("cp", cp);
+		List<Claim> claimList = q5.getResultList();
+		return claimList;
+		}
+
 
 	@Override
 	public List<Claim> getAllClaims() {

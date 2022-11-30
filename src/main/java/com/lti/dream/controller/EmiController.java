@@ -32,7 +32,7 @@ public class EmiController {
 	}
 	
 	//http://localhost:8989/emi/updateuser/1071
-	@PutMapping("/updateuser/{loanAmount}")
+	@PutMapping("/updateemi/{loanAmount}")
 	boolean updateRoi(@PathVariable("loanAmount") int loanAmount, @RequestBody Emi e){
         return EmiService.updateRoi(loanAmount, e);
     }

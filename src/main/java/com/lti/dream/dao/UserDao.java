@@ -14,6 +14,8 @@ public interface UserDao {
 
 	public boolean updateSal(int uid, User u);
 
+	public boolean updateUserPswd(int uid,User u);
+	
 	public List<User> getAllUser();
 
 	public User deleteUser(int userId);

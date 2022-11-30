@@ -63,6 +63,17 @@ public class UserDaoImpl implements UserDao {
 		em.merge(tempUser);
 		return true;
 	}
+	
+	@Override
+	@Transactional
+	public boolean updateUserPswd(int userId, User u) {
+		
+		User tempUser=em.find(User.class, userId);
+		tempUser.setUserPswd(u.getUserPswd());;
+		em.merge(tempUser);
+		return true;
+	}
+
 
 	@Override
     @Transactional

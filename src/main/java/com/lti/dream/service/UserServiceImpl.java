@@ -44,6 +44,12 @@ public class UserServiceImpl implements UserService {
 	    boolean ans = dao.updateSal(userId, u);
 	    return ans;
 	}
+	
+	@Override
+	public boolean updateUserPswd(int userId, User u) {
+	    boolean ans = dao.updateSal(userId, u);
+	    return ans;
+	}
 
 	@Override
 	   public List<User> getAllUser() {

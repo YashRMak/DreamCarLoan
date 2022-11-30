@@ -39,7 +39,7 @@ public class AdminController   {
 	
     //http://localhost:8989/admin/updateadmin/{aid}
 	@PutMapping("/updateadmin/{aid}")
-	public boolean updateAdminId(@PathVariable("aid") int aid, @RequestBody Admin a){
+	public boolean updateAdminPswd(@PathVariable("aid") int aid, @RequestBody Admin a){
 		return adminService.updateAdminPswd(aid, a);
 	}
 	

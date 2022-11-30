@@ -23,10 +23,6 @@ public class Admin {
 	
 	@Column(name="ADMIN_PASSWORD")
 	private String adminPswd;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="ADMIN_POLICY")
-	private Policy policy; 
 
 	public Admin() {
 		super();

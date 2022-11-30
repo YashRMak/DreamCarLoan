@@ -16,5 +16,8 @@ public interface ClaimDao {
 	public boolean updateStatus(int appNo, Claim c);
 
 	public Claim deleteClaim(int appNo);
+
+	List<Claim> findClaimByChosenPol(int cp);
+	
 	
 }

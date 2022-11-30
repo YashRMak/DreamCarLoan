@@ -27,6 +27,12 @@ public class ClaimController {
 		return claimService.findClaimByNo(appNo);
 	}
 	
+	//http://localhost:8989/claims/findclaimbycp/{cp}
+	@GetMapping("/findclaimbycp/{cp}") 
+	public List<Claim> findClaimbyreqStatus(@PathVariable("cp") int cp){
+		return claimService.findClaimbyChosenPol(cp);
+	}
+	
 	//http://localhost:8989/claims/allclaims
 	@GetMapping("/allclaims")
 	public List<Claim> getAllClaims(){
