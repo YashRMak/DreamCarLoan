@@ -42,7 +42,7 @@ public class User {
 	private  int accountNo;
 	
 	@Column(name="BALANCE")
-	private String balance;
+	private int balance;
 	
 	@Column(name="AADHAR")
 	private int aadharNo;
@@ -51,7 +51,7 @@ public class User {
 	private String panCard;
 	
 	public User(int userId, String userPswd, double userSal, int dlNo, String name, String city, int contactNo,
-			int accountNo, String balance, int aadharNo, String panCard) {
+			int accountNo, int balance, int aadharNo, String panCard) {
 		super();
 		this.userId = userId;
 		this.userPswd = userPswd;
@@ -124,12 +124,12 @@ public class User {
 	}
 
 
-	public String getBalance() {
+	public int getBalance() {
 		return balance;
 	}
 
 
-	public void setBalance(String balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 

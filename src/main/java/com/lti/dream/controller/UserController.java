@@ -21,6 +21,7 @@ public class UserController   {
 	//http://localhost:8989/user/adduser
 	@PostMapping("/adduser")
 	public int addUser1(@RequestBody User u) {
+		System.out.println(u);
 		return userService.addUser1(u);
 	}
 	

@@ -11,16 +11,31 @@ public class Claim {
 	private String reqStatus;
 	
 	private int chosenPolicy;
+	
+	private int chosenVehicle;
+	
 
 	public Claim() {
 		super();
 	}
 
-	public Claim(int applicationNo, String reqStatus, int chosenPolicy) {
+
+	public Claim(int applicationNo, String reqStatus, int chosenPolicy, int chosenVehicle) {
 		super();
 		this.applicationNo = applicationNo;
 		this.reqStatus = reqStatus;
 		this.chosenPolicy = chosenPolicy;
+		this.chosenVehicle = chosenVehicle;
+	}
+
+
+	public int getChosenVehicle() {
+		return chosenVehicle;
+	}
+
+
+	public void setChosenVehicle(int chosenVehicle) {
+		this.chosenVehicle = chosenVehicle;
 	}
 
 
