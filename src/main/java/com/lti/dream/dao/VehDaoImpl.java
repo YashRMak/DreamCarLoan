@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.dream.beans.PersonalInformation;
 import com.lti.dream.beans.Vehicle;
 
 @Repository

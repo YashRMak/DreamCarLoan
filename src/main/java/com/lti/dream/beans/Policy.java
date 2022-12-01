@@ -1,11 +1,8 @@
 package com.lti.dream.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,56 +16,86 @@ public class Policy {
 	@Column(name="TypeOfPolicy")
 	private String policyType;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="POLICY_EMI")
-	private Emi emi;
-
-
-	public Emi getEmi() {
-		return emi;
-	}
-
-	public void setEmi(Emi emi) {
-		this.emi = emi;
+	@Column(name="LoanAmount")
+	private double loanAmount;
+	
+	@Column(name="Tenure")
+	private int tenure;
+	
+	@Column(name="RateOfInterest")
+	private double rateOfInterest;
+	
+	@Column(name="MonthlyInstallment")
+	private double monthlyInstallment;
+	
+	public Policy(int policyNo, String policyType, double loanAmount, int tenure, double rateOfInterest,
+			double monthlyInstallment) {
+		super();
+		this.policyNo = policyNo;
+		this.policyType = policyType;
+		this.loanAmount = loanAmount;
+		this.tenure = tenure;
+		this.rateOfInterest = rateOfInterest;
+		this.monthlyInstallment = monthlyInstallment;
 	}
 
 	public Policy() {
 		super();
 	}
 
-	public Policy(int policyNo, String policyType) {
-		super();
-		this.policyNo = policyNo;
-		this.policyType = policyType;
-	}
-
-
 	public int getPolicyNo() {
 		return policyNo;
 	}
-
 
 	public void setPolicyNo(int policyNo) {
 		this.policyNo = policyNo;
 	}
 
-
 	public String getPolicyType() {
 		return policyType;
 	}
-
 
 	public void setPolicyType(String policyType) {
 		this.policyType = policyType;
 	}
 
-	@Override
-	public String toString() {
-		return "Policy [policyNo=" + policyNo + ", policyType=" + policyType + "]";
+	public double getLoanAmount() {
+		return loanAmount;
 	}
 
+	public void setLoanAmount(double loanAmount) {
+		this.loanAmount = loanAmount;
+	}
 
+	public int getTenure() {
+		return tenure;
+	}
+
+	public void setTenure(int tenure) {
+		this.tenure = tenure;
+	}
+
+	public double getRateOfInterest() {
+		return rateOfInterest;
+	}
+
+	public void setRateOfInterest(double rateOfInterest) {
+		this.rateOfInterest = rateOfInterest;
+	}
+
+	public double getMonthlyInstallment() {
+		return monthlyInstallment;
+	}
+
+	public void setMonthlyInstallment(double monthlyInstallment) {
+		this.monthlyInstallment = monthlyInstallment;
+	}
+
+	@Override
+	public String toString() {
+		return "Policy [policyNo=" + policyNo + ", policyType=" + policyType + ", loanAmount=" + loanAmount
+				+ ", tenure=" + tenure + ", rateOfInterest=" + rateOfInterest + ", monthlyInstallment="
+				+ monthlyInstallment + "]";
+	}
+	
 }
-	
-
-	

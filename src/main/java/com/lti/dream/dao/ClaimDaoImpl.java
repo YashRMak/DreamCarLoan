@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.dream.beans.Account;
 import com.lti.dream.beans.Claim;
 
 @Repository

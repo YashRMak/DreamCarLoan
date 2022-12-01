@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.lti.dream.beans.PersonalInformation;
 import com.lti.dream.beans.Vehicle;
 
 
