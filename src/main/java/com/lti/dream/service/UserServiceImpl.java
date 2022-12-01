@@ -62,4 +62,12 @@ public class UserServiceImpl implements UserService {
         User u1=dao.deleteUser(uId);
         return u1;
     }
+	
+	@Override
+	public boolean checkUserLogin(int userId, String userPswd) {
+		
+		return dao.checkUserLogin(userId, userPswd);
+	}
+	
+	
 }

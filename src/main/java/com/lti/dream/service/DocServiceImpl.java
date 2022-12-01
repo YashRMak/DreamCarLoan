@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.dream.beans.Document;
+import com.lti.dream.beans.User;
 import com.lti.dream.dao.DocDao;
 
 @Service("docService")
@@ -43,4 +44,10 @@ public class DocServiceImpl implements DocDao{
 		boolean f=dao.updateVerification(aaNo, doc);
 		return f;
 	}
+
+	@Override
+    public Document deleteDoc(int aNo) {
+        Document d1=dao.deleteDoc(aNo);
+        return d1;
+    }
 }

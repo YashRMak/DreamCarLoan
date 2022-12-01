@@ -53,15 +53,12 @@ public class AdminDaoImpl implements AdminDao {
 		}
 	}
 
-//	@Override
-//	public boolean deleteAdminId(int adminId, Admin a) {
-//		Admin tempAdmin=em.find(Admin.class, adminId);
-//		tempAdmin.setAdminId(a.getAdminId());
-//		em.remove(tempAdmin);
-//		em.merge(tempAdmin);
-//		return true;
-//	}
-
-
-	
+	@Override
+	public boolean checkAdminLogin(int adminId, String adminPswd) {
+		Admin temp1=em.find(Admin.class, adminId);
+		if (temp1!=null && temp1.getAdminId()==adminId && temp1.getAdminPswd().equals(adminPswd)){
+			return true;
+		}
+		return false;
+	}
 }

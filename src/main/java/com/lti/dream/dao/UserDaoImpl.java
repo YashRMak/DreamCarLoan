@@ -83,4 +83,12 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 	
+	@Override
+	public boolean checkUserLogin(int userId, String userPswd) {
+		User temp1 = em.find(User.class, userId);
+		if (temp1!=null && temp1.getUserId()==userId && temp1.getUserPswd().equals(userPswd) ){
+			return true;
+		}
+		return false;
+	}
 }

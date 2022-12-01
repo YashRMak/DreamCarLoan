@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import com.lti.dream.beans.Document;
+import com.lti.dream.beans.User;
 import com.lti.dream.service.DocServiceImpl;
 
 @CrossOrigin(origins="*")
@@ -30,7 +31,7 @@ public class DocController {
 	
 	//http://localhost:8989/document/alldocs
 	@GetMapping("/alldocs")
-	public List<Document> findAll(){
+	public List<Document> getAllDocs(){
 		return docService.getAllDocs();
 	}
 	
@@ -41,8 +42,14 @@ public class DocController {
 	}
 	
 	//http://localhost:8989/document/verification/{aadharNo}
-		@PutMapping("/verification/{aadharNo}")
-		public boolean updateVerification(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
-			return docService.updateVerification(aadharNo, doc);
-		}
+	@PutMapping("/verification/{aadharNo}")
+	public boolean updateVerification(@PathVariable("aadharNo") int aadharNo, @RequestBody Document doc) {
+		return docService.updateVerification(aadharNo, doc);
+	}
+	
+	//http://localhost:8989/document/deletedoc/{aNo}
+	@DeleteMapping("/deletedoc/{aNo}")
+	public Document deleteDoc(@PathVariable("aNo") int aNo) {
+	    return docService.deleteDoc(aNo);
+	}
 }

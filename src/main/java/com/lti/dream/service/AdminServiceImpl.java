@@ -42,10 +42,10 @@ public class AdminServiceImpl implements AdminService {
 		return ans;
 	}
 	
-//	@Override
-//	public boolean deleteAdminId(int adminId, Admin a) {
-//			boolean ans1= dao.deleteAdminId(adminId, a);
-//			return ans1;
-//	}	
+	@Override
+	public boolean checkAdminLogin(int adminId, String adminPswd) {
+		
+		return dao.checkAdminLogin(adminId, adminPswd);
+	}
 	
 }

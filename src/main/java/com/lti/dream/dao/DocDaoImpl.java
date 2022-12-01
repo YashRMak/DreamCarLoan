@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Account;
 import com.lti.dream.beans.Document;
+import com.lti.dream.beans.User;
 
 @Repository
 public class DocDaoImpl implements DocDao{
@@ -68,5 +69,13 @@ public class DocDaoImpl implements DocDao{
 		return false;
 		}
 	}
+
+	@Override
+    @Transactional
+    public Document deleteDoc(int aNo) {
+        Document d = em.find(Document.class, aNo);
+        em.remove(d);
+        return d;
+    }
 	
 }

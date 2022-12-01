@@ -19,6 +19,8 @@ public interface UserDao {
 	public List<User> getAllUser();
 
 	public User deleteUser(int userId);
+
+	public boolean checkUserLogin(int userId, String userPswd);
 	
 	
 }

@@ -21,4 +21,6 @@ public interface UserService {
 	public boolean updateUserPswd(int uid,User u);
 	
 	public User deleteUser(int uId);
+
+	public boolean checkUserLogin(int userId, String userPswd);
 }

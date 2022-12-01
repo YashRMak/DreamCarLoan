@@ -15,4 +15,6 @@ public interface DocDao {
 
 	public boolean updateVerification(int aaNo, Document doc);
 
+	public Document deleteDoc(int aNo);
+
 }

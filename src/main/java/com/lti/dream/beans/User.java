@@ -27,84 +27,20 @@ public class User {
 	
 	@Column(name="DL_NO",unique=true)
 	private int dlNo;
-
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_VEHICLE")
-	private Vehicle vehicle;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_INFO")
-	private PersonalInformation personalinfo;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_DOCUMENT")
-	private Document document;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_ACCOUNT")
-	private Account account;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="USER_CLAIM")
-	private Claim claim;
-	
+	private String name;
 
-	public Claim getClaim() {
-		return claim;
-	}
 
-	public void setClaim(Claim claim) {
-		this.claim = claim;
-	}
-
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public PersonalInformation getPersonalinfo() {
-		return personalinfo;
-	}
-
-	public void setPersonalinfo(PersonalInformation personalinfo) {
-		this.personalinfo = personalinfo;
-	}
-
-	public Document getDocument() {
-		return document;
-	}
-
-	public void setDocument(Document document) {
-		this.document = document;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 
 	public User() {
 		super();
 	}
 
-	public User(int userId, String userPswd, double userSal, int dlNo) {
-		super();
-		this.userId = userId;
-		this.userPswd = userPswd;
-		this.userSal = userSal;
-		this.dlNo = dlNo;
-	}
+	
 	
 	public int getUserId() {
 		return userId;
 	}
-
 
 	public void setUserId(int userId) {
 		this.userId = userId;

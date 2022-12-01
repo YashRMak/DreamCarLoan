@@ -14,7 +14,8 @@ public interface AdminDao {
 	
 	public boolean updateAdminPswd(int adminId, Admin a);
 
-//	public boolean deleteAdminId(int adminId, Admin a);
+	public boolean checkAdminLogin(int adminId, String adminPswd);
+
 
 	
 }

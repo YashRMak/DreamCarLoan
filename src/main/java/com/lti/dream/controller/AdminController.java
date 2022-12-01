@@ -43,6 +43,12 @@ public class AdminController   {
 		return adminService.updateAdminPswd(aid, a);
 	}
 	
+	//http://localhost:8989/userlogin/{adminId}
+		@GetMapping("/adminlogin/{adminId}")
+		public boolean checkAdminLogin(@PathVariable("adminId") int adminId, String adminPswd){
+			return adminService.checkAdminLogin(adminId, adminPswd);
+		}
+	
 }
 
 	
