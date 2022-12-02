@@ -14,7 +14,11 @@ public class Claim {
 	
 	private int chosenVehicle;
 	
-
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="USERCLAIM_ID")
+	private User user;
+	
+	
 	public Claim() {
 		super();
 	}
@@ -26,6 +30,16 @@ public class Claim {
 		this.reqStatus = reqStatus;
 		this.chosenPolicy = chosenPolicy;
 		this.chosenVehicle = chosenVehicle;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

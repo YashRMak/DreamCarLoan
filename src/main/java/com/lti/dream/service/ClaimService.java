@@ -5,7 +5,8 @@ import java.util.List;
 import com.lti.dream.beans.Claim;
 
 public interface ClaimService {
-	public int addClaim(Claim c);
+	
+	public int addClaim(int uid,Claim c);
 
 	public Claim findClaimByNo(int appNo);//User only
 

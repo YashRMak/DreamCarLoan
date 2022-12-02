@@ -7,7 +7,7 @@ import com.lti.dream.beans.Claim;
 
 public interface ClaimDao {
 	
-	public int addClaim(Claim c);
+	public int addClaim(int uid,Claim c);
 
 	public Claim findClaimByNo(int appNo);
 

@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Claim;
+import com.lti.dream.beans.User;
 
 @Repository
 public class ClaimDaoImpl implements ClaimDao{
@@ -20,7 +21,10 @@ public class ClaimDaoImpl implements ClaimDao{
 	
 	@Override
 	@Transactional
-	public int addClaim(Claim c) {
+	public int addClaim(int uid,Claim c) {
+		User u=em.find(User.class, uid);
+		c.setUser(u);
+		c.setReqStatus("pending");
 		System.out.println("DAO layer");
 		em.persist(c);
 		return c.getApplicationNo();

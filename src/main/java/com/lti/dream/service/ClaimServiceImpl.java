@@ -15,9 +15,9 @@ public class ClaimServiceImpl implements ClaimService{
 	ClaimDao dao;
 	
 	@Override
-	public int addClaim(Claim c) {
+	public int addClaim(int uid,Claim c) {
 		System.out.println("service layer");
-		int appNo=dao.addClaim(c);
+		int appNo=dao.addClaim(uid,c);
 		return appNo;
 	}
 

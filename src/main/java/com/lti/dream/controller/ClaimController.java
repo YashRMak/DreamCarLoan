@@ -16,9 +16,9 @@ public class ClaimController {
 	ClaimServiceImpl claimService;
 	
 	//http://localhost:8989/claims/addclaim
-	@PostMapping("/addclaim")
-	public int addClaim(@RequestBody Claim c) {
-		return claimService.addClaim(c);
+	@PostMapping("/addclaim/{uid}")
+	public int addClaim(@PathVariable("uid") int uid,@RequestBody Claim c) {
+		return claimService.addClaim(uid,c);
 	}
 	
 	//http://localhost:8989/claims/findclaim/{appNo}

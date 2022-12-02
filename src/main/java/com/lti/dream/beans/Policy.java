@@ -28,6 +28,8 @@ public class Policy {
 	@Column(name="MonthlyInstallment")
 	private double monthlyInstallment;
 	
+	
+	
 	public Policy(int policyNo, String policyType, double loanAmount, int tenure, double rateOfInterest,
 			double monthlyInstallment) {
 		super();
