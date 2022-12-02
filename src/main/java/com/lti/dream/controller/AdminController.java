@@ -28,7 +28,8 @@ public class AdminController   {
 	//http://localhost:8989/admin/findadmin/{aid}
 	@GetMapping("/findadmin/{aid}")
 	public Admin findAdmin(@PathVariable("aid") int adminId) {
-		return adminService.findAdminById(adminId);
+		Admin admin=adminService.findAdminById(adminId);
+		return admin;
 	}
 	
     //http://localhost:8989/admin/alladmin
@@ -43,12 +44,11 @@ public class AdminController   {
 		return adminService.updateAdminPswd(aid, a);
 	}
 	
-	//http://localhost:8989/admin/adminlogin/{adminId}
-		@GetMapping("/adminlogin/{adminId}")
-		public boolean checkAdminLogin(@PathVariable("adminId") int adminId, String adminPswd){
-			return adminService.checkAdminLogin(adminId, adminPswd);
-		}
-	
+	//http://localhost:8989/admin/adminlogin/{adminId}/{adminPswd}
+	@GetMapping("/adminlogin/{adminId}/{adminPswd}")
+	public boolean checkAdminLogin(@PathVariable("adminId") int adminId, @PathVariable("adminPswd") String adminPswd){
+		return adminService.checkAdminLogin(adminId, adminPswd);
+	}
 }
 
 	

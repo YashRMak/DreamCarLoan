@@ -55,9 +55,9 @@ public class UserController   {
 	    return userService.deleteUser(uId);
 	}
 	
-	//http://localhost:8989/user/userlogin/{userId}
-	@GetMapping("/userlogin/{userId}")
-	public boolean checkUserLogin(@PathVariable("userId") int userId,String userPswd){
+	//http://localhost:8989/user/userlogin/{userId}/{userPswd}
+	@GetMapping("/userlogin/{userId}/{userPswd}")
+	public boolean checkUserLogin(@PathVariable("userId") int userId,@PathVariable("userPswd") String userPswd){
 		return userService.checkUserLogin(userId, userPswd);
 	}
 }

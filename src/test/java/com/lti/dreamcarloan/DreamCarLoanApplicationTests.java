@@ -1,10 +1,10 @@
-package com.lti.cruddemo;
+package com.lti.dreamcarloan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CruddemoApplicationTests {
+class DreamCarLoanApplicationTests {
 
 	@Test
 	void contextLoads() {
