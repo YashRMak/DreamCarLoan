@@ -17,7 +17,11 @@ public interface ClaimDao {
 
 	public Claim deleteClaim(int appNo);
 
-	List<Claim> findClaimByChosenPol(int cp);
+	public List<Claim> findClaimByChosenPol(int cp);
+
+	public List<Claim> findMyClaim(int userId);
+
+	public List<Claim> rejectedList();
 	
 	
 }

@@ -1,5 +1,6 @@
 package com.lti.dream.dao;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -23,7 +24,11 @@ public class PolicyDaoImpl implements PolicyDao {
 	@Transactional
 	public int addPolicy(Policy e) {
 		System.out.println("dao layer");
-
+		double amt=e.getLoanAmount();
+		double roi=e.getRateOfInterest();
+		int tenure=e.getTenure();
+		double mi=amt*roi*( (Math.pow(1+roi,tenure))/ ((Math.pow(1+roi,tenure))-1));	
+		e.setMonthlyInstallment(mi);
 		em.persist(e);
 		return e.getPolicyNo();
 

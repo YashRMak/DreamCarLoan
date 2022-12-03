@@ -49,5 +49,17 @@ public class ClaimServiceImpl implements ClaimService{
         Claim c1=dao.deleteClaim(appNo);
         return c1;
     }
-
+	
+	@Override
+	public List<Claim> findMyClaim(int userId){
+		List<Claim> ucList=dao.findMyClaim(userId);
+		return ucList;
+		
+	}
+	
+	@Override
+	public List<Claim> rejectedList(){
+		List<Claim> rList=dao.rejectedList();
+		return rList;
+	}
 }

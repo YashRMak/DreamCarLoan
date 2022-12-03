@@ -16,6 +16,12 @@ public interface ClaimService {
 
 	public Claim deleteClaim(int appNo);
 
-	List<Claim> findClaimbyChosenPol(int cp); // Admin only
+	public List<Claim> findClaimbyChosenPol(int cp); // Admin only
+
+	public List<Claim> findMyClaim(int userId);
+
+	public List<Claim> rejectedList();
+	
+	
 	
 }

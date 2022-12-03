@@ -50,4 +50,18 @@ public class ClaimController {
 	public Claim deleteClaim(@PathVariable("appNo") int appNo) {
 	    return claimService.deleteClaim(appNo);
 	}
+	
+	//http://localhost:8989/claims/myclaim/{userId}
+	@GetMapping("/myclaim/{userId}")
+	public List<Claim> findMyClaim(@PathVariable("userId") int userId){
+		return claimService.findMyClaim(userId);
+	}
+	
+	//http://localhost:8989/claims/rejectedlist
+	@GetMapping("/rejectedlist")
+	public List<Claim> rejectList(){
+		return claimService.rejectedList();
+	}
+			
+	
 }

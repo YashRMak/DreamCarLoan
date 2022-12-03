@@ -45,8 +45,27 @@ public class ClaimDaoImpl implements ClaimDao{
 		List<Claim> claimList = q5.getResultList();
 		return claimList;
 		}
-
-
+	
+	@Override
+	public List<Claim> findMyClaim(int userId) {
+		
+		Query q= em.createQuery("select c from Claim as c where c.user.userId=:userId");
+		q.setParameter("userId", userId);
+		
+		List<Claim> ucList= q.getResultList();  	
+		return ucList;
+		
+	}
+	
+	@Override
+	public  List<Claim> rejectedList() {
+        Query q=em.createQuery("select c from Claim as c where c.reqStatus=:rejected");
+        q.setParameter("rejected", "rejected");
+        List<Claim>rList=q.getResultList();
+        return rList;
+        
+    }
+	
 	@Override
 	public List<Claim> getAllClaims() {
 		TypedQuery tqry = em.createQuery("Select c from Claim c", Claim.class);
