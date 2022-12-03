@@ -28,12 +28,13 @@ public class Policy {
 	@Column(name="MonthlyInstallment")
 	private double monthlyInstallment;
 	
-//	@Column(name="Eligible_Amount")
-//	private int eligible_amount;
+	@Column(name="Eligible_Amount")
+	private int eligibleAmount;
 	
 	
+
 	public Policy(int policyNo, String policyType, double loanAmount, int tenure, double rateOfInterest,
-			double monthlyInstallment) {
+			double monthlyInstallment, int eligibleAmount) {
 		super();
 		this.policyNo = policyNo;
 		this.policyType = policyType;
@@ -41,7 +42,19 @@ public class Policy {
 		this.tenure = tenure;
 		this.rateOfInterest = rateOfInterest;
 		this.monthlyInstallment = monthlyInstallment;
+		this.eligibleAmount = eligibleAmount;
 	}
+
+	
+	public int getEligibleAmount() {
+		return eligibleAmount;
+	}
+
+
+	public void setEligibleAmount(int eligibleAmount) {
+		this.eligibleAmount = eligibleAmount;
+	}
+
 
 	public Policy() {
 		super();
