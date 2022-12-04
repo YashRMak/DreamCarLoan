@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dream.beans.Vehicle;
+import com.lti.dream.exception.VehicleNotFoundException;
 import com.lti.dream.service.VehServiceImpl;
 
 
@@ -26,9 +27,12 @@ public class VehicleController {
 
 	//http://localhost:8989/vehicle/getveh
 		@GetMapping("/getveh")
-	public List<Vehicle> getAllpers() 
-		{
-			return VehService.getAllveh();
+	public List<Vehicle> getAllpers() {
+			try{return VehService.getAllveh();}
+			catch(VehicleNotFoundException e) {
+				e.printStackTrace();
+			}
+			return null;
 		}
 	
 		

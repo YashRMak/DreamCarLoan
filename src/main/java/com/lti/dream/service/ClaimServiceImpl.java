@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dream.beans.Claim;
 import com.lti.dream.dao.ClaimDao;
+import com.lti.dream.exception.ClaimNotFoundException;
 
 @Service("claimService")
 public class ClaimServiceImpl implements ClaimService{
@@ -22,19 +23,19 @@ public class ClaimServiceImpl implements ClaimService{
 	}
 
 	@Override
-	public Claim findClaimByNo(int appNo) {
-		Claim fc= dao.findClaimByNo(appNo);
+	public Claim findClaimByNo(int appNo) throws ClaimNotFoundException{
+		Claim fc= dao.findClaimByNo(appNo) ;
 		return fc;
 	}
 	
 	@Override
-	public List<Claim> findClaimbyChosenPol(int cp) {
+	public List<Claim> findClaimbyChosenPol(int cp) throws ClaimNotFoundException{
 		List<Claim> Claim_List = dao.findClaimByChosenPol(cp);
 		return Claim_List;
 	}
 
 	@Override
-	public List<Claim> getAllClaims() {
+	public List<Claim> getAllClaims() throws ClaimNotFoundException{
 		List<Claim> clList= dao.getAllClaims(); 
 		return clList;
 	}
@@ -51,14 +52,14 @@ public class ClaimServiceImpl implements ClaimService{
     }
 	
 	@Override
-	public List<Claim> findMyClaim(int userId){
+	public List<Claim> findMyClaim(int userId) throws ClaimNotFoundException{
 		List<Claim> ucList=dao.findMyClaim(userId);
 		return ucList;
 		
 	}
 	
 	@Override
-	public List<Claim> rejectedList(){
+	public List<Claim> rejectedList() throws ClaimNotFoundException{
 		List<Claim> rList=dao.rejectedList();
 		return rList;
 	}

@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Vehicle;
+import com.lti.dream.exception.VehicleNotFoundException;
 
 @Repository
 public class VehDaoImpl implements VehDao {
@@ -18,10 +19,13 @@ public class VehDaoImpl implements VehDao {
 	private EntityManager em;
 
 	@Override
-	public List<Vehicle> getAllveh() {
+	public List<Vehicle> getAllveh() throws VehicleNotFoundException{
 		System.out.println("dao layer p displays all records");
 		Query qry = em.createQuery("Select v from Vehicle v");
 		List<Vehicle> vehList=qry.getResultList();
+		if(vehList.isEmpty()) {
+			throw new VehicleNotFoundException("Vehicle List Not Found");
+		}
 		return vehList;	
 	}
 

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
+import com.lti.dream.exception.UserNotFoundException;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -30,9 +31,11 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	 @Override
-	public User findUser(int userId) {
+	public User findUser(int userId) throws UserNotFoundException {
 		User emp_find = em.find(User.class, userId);
-		
+		if(emp_find==null) {
+			throw new UserNotFoundException("User Not Found");
+		}
 		return emp_find;
 	} 
 
@@ -47,10 +50,12 @@ public class UserDaoImpl implements UserDao {
 	
 	 @Override
 	    @Transactional
-	    public List<User> getAllUser()  {
+	    public List<User> getAllUser()  throws UserNotFoundException{
 	        TypedQuery<User> qry=em.createQuery("SELECT u FROM User u ",User.class);
 	        List<User> userList = qry.getResultList();
-	        
+	        if(userList.isEmpty()) {
+	        	throw new UserNotFoundException("User Not Found");
+	        }
 	        return userList;
 	    }
 

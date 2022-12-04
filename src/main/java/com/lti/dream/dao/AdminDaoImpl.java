@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Admin;
+import com.lti.dream.exception.AdminNotFoundException;
 
 @Repository
 public class AdminDaoImpl implements AdminDao {
@@ -26,15 +27,23 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	 @Override
-	public Admin findAdminById(int adminId) {
+	public Admin findAdminById(int adminId) throws AdminNotFoundException {
 		Admin a = em.find(Admin.class, adminId);
-	    return a;
+		if(a!=null) {
+			 return a;
+		}
+		else {
+		throw new AdminNotFoundException("Admin Not Found");
+		}
 	} 
 	 
 	@Override
-	public List<Admin> getAllAdmin() {
+	public List<Admin> getAllAdmin() throws AdminNotFoundException{
 		TypedQuery<Admin> qry=em.createQuery("SELECT a FROM Admin a ",Admin.class);
 		List<Admin> adminList = qry.getResultList();
+		if(adminList.isEmpty()) {
+			throw new AdminNotFoundException("Admin List Not Found");
+		}
 		return adminList;
 	}
 

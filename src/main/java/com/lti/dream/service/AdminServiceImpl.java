@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.lti.dream.beans.Admin;
 
 import com.lti.dream.dao.AdminDao;
+import com.lti.dream.exception.AdminNotFoundException;
 
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
@@ -25,13 +26,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Admin findAdminById(int adminId) {
-		Admin a =  dao.findAdminById(adminId);
+	public Admin findAdminById(int adminId) throws AdminNotFoundException  {
+		Admin a =  dao.findAdminById(adminId) ;
 		return a;
 	} 
 	
 	@Override
-	public List<Admin> getAllAdmin() {
+	public List<Admin> getAllAdmin() throws AdminNotFoundException {
 		List<Admin> adminList = dao.getAllAdmin();
 		return adminList;
 	}

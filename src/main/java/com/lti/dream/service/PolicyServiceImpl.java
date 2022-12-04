@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dream.beans.Policy;
 import com.lti.dream.dao.PolicyDao;
+import com.lti.dream.exception.PolicyNotFoundException;
 
 
 @Service("policyService")
@@ -20,15 +21,16 @@ public class PolicyServiceImpl implements PolicyService{
 		int policyNo = dao.addPolicy(e);
 		return policyNo;
 	}
+	
 	@Override
-	public Policy findPolicy(int policyNo){
+	public Policy findPolicy(int policyNo) throws PolicyNotFoundException {
 	  Policy e = dao.findPolicy(policyNo);
 	  return e;
 	 }
 
  
 	 @Override
-	 public List<Policy> getAllPolicies() {
+	 public List<Policy> getAllPolicies() throws PolicyNotFoundException {
 	  List<Policy> empList1 = dao.getAllPolicies();
 	
 	  return empList1;

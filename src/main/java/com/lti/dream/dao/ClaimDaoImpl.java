@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
+import com.lti.dream.exception.ClaimNotFoundException;
 
 @Repository
 public class ClaimDaoImpl implements ClaimDao{
@@ -31,45 +32,59 @@ public class ClaimDaoImpl implements ClaimDao{
 	}
 
 	@Override
-	public Claim findClaimByNo(int appNo) {
+	public Claim findClaimByNo(int appNo) throws ClaimNotFoundException{
 		System.out.println("DAO layer");
 		Claim c= em.find(Claim.class, appNo);
+		if(c==null) {
+			throw new ClaimNotFoundException("Claim Not Found");
+		}
 		return c;
+		
 	}
 	
 	@Override
-	public  List<Claim> findClaimByChosenPol(int cp) {
+	public  List<Claim> findClaimByChosenPol(int cp) throws ClaimNotFoundException{
 		Query q5=em.createQuery("SELECT c FROM Claim c WHERE c.chosenPolicy = :cp",Claim.class);
-		
 		q5.setParameter("cp", cp);
 		List<Claim> claimList = q5.getResultList();
+		if(claimList.isEmpty()) {
+			throw new ClaimNotFoundException("Claim List Not Found");
+		}
 		return claimList;
 		}
 	
 	@Override
-	public List<Claim> findMyClaim(int userId) {
+	public List<Claim> findMyClaim(int userId) throws ClaimNotFoundException{
 		
 		Query q= em.createQuery("select c from Claim as c where c.user.userId=:userId");
 		q.setParameter("userId", userId);
-		
-		List<Claim> ucList= q.getResultList();  	
+		List<Claim> ucList= q.getResultList();
+		if(ucList.isEmpty()) {
+			throw new ClaimNotFoundException("Claim List Not Found");
+		}
 		return ucList;
 		
 	}
 	
 	@Override
-	public  List<Claim> rejectedList() {
+	public  List<Claim> rejectedList() throws ClaimNotFoundException{
         Query q=em.createQuery("select c from Claim as c where c.reqStatus=:rejected");
         q.setParameter("rejected", "rejected");
         List<Claim>rList=q.getResultList();
+        if(rList.isEmpty()) {
+			throw new ClaimNotFoundException("Claim List Not Found");
+		}
         return rList;
         
     }
 	
 	@Override
-	public List<Claim> getAllClaims() {
+	public List<Claim> getAllClaims() throws ClaimNotFoundException{
 		TypedQuery tqry = em.createQuery("Select c from Claim c", Claim.class);
         List<Claim> clList = tqry.getResultList();
+        if(clList.isEmpty()) {
+			throw new ClaimNotFoundException("Claim List Not Found");
+		}
 		return clList;
 	}
 

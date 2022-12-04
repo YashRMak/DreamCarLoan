@@ -1,6 +1,7 @@
 package com.lti.dream.controller;
 
 import com.lti.dream.beans.Claim;
+import com.lti.dream.exception.ClaimNotFoundException;
 import com.lti.dream.service.ClaimServiceImpl;
 
 import java.util.List;
@@ -24,19 +25,31 @@ public class ClaimController {
 	//http://localhost:8989/claims/findclaim/{appNo}
 	@GetMapping("/findclaim/{appNo}") 
 	public Claim findClaimByNo(@PathVariable("appNo") int appNo){
-		return claimService.findClaimByNo(appNo);
+		try{return claimService.findClaimByNo(appNo);}
+		catch(ClaimNotFoundException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//http://localhost:8989/claims/findclaimbycp/{cp}
 	@GetMapping("/findclaimbycp/{cp}") 
 	public List<Claim> findClaimbyreqStatus(@PathVariable("cp") int cp){
-		return claimService.findClaimbyChosenPol(cp);
+		try{return claimService.findClaimbyChosenPol(cp);}
+		catch(ClaimNotFoundException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//http://localhost:8989/claims/allclaims
 	@GetMapping("/allclaims")
 	public List<Claim> getAllClaims(){
-		return claimService.getAllClaims();
+		try{return claimService.getAllClaims();}
+		catch(ClaimNotFoundException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 		
 	//http://localhost:8989/claims/updateclaim/{appNo}
@@ -54,13 +67,21 @@ public class ClaimController {
 	//http://localhost:8989/claims/myclaim/{userId}
 	@GetMapping("/myclaim/{userId}")
 	public List<Claim> findMyClaim(@PathVariable("userId") int userId){
-		return claimService.findMyClaim(userId);
+		try{return claimService.findMyClaim(userId);}
+		catch(ClaimNotFoundException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//http://localhost:8989/claims/rejectedlist
 	@GetMapping("/rejectedlist")
 	public List<Claim> rejectList(){
-		return claimService.rejectedList();
+		try{return claimService.rejectedList();}
+		catch(ClaimNotFoundException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 			
 	

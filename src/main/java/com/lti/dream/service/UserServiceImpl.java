@@ -10,6 +10,7 @@ import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
 
 import com.lti.dream.dao.UserDao;
+import com.lti.dream.exception.UserNotFoundException;
 
 
 @Service("userService")
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUser(@PathVariable("uid") int userId) {
+	public User findUser(@PathVariable("uid") int userId) throws UserNotFoundException{
 		User u1=dao.findUser(userId);
 		
 		return u1;
@@ -52,7 +53,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	   public List<User> getAllUser() {
+	   public List<User> getAllUser() throws UserNotFoundException{
 	       List<User> userList = dao.getAllUser();
 	       return userList;
 	}

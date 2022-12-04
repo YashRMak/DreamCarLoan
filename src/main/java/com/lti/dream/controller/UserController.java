@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.lti.dream.beans.Claim;
 import com.lti.dream.beans.User;
+import com.lti.dream.exception.UserNotFoundException;
 import com.lti.dream.service.UserServiceImpl;
 
 @CrossOrigin(origins="*")
@@ -28,13 +29,21 @@ public class UserController   {
 	//http://localhost:8989/user/finduser/{uid}
 	@GetMapping("/finduser/{uid}")
     public User findUser(@PathVariable("uid") int userId){
-        return userService.findUser(userId);
+       try { return userService.findUser(userId);}
+       catch(UserNotFoundException e) {
+    	   e.printStackTrace();
+       }
+       return null;
     }
 	
 	//http://localhost:8989/user/alluser
 	@GetMapping("/alluser")
     public List<User> allUser(){
-        return userService.getAllUser();
+       try { return userService.getAllUser();}
+       catch(UserNotFoundException e) {
+    	   e.printStackTrace();
+       }
+       return null;
     }
 	
 	//http://localhost:8989/user/updateusersal/{uId}

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import com.lti.dream.beans.Policy;
+import com.lti.dream.exception.PolicyNotFoundException;
 import com.lti.dream.service.PolicyServiceImpl;
 @CrossOrigin(origins="*")
 @RestController
@@ -20,13 +21,21 @@ public class PolicyController {
 	//http://localhost:8989/policies/findpolicy/{pNo}
 	@GetMapping("/findpolicy/{pNo}")
 	public Policy findPolicy(@PathVariable("pNo")int pNo){
-		return policyService.findPolicy(pNo);
+		try{return policyService.findPolicy(pNo);}
+		catch(PolicyNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//http://localhost:8989/policies/allpol
 	@GetMapping("/allpol")
 	public  List<Policy> getAllPolicies() {
-		return policyService.getAllPolicies();
+		try{return policyService.getAllPolicies();}
+		catch(PolicyNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	//http://localhost:8989/policies/addpolicy

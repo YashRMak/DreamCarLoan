@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dream.beans.Vehicle;
 import com.lti.dream.dao.VehDao;
+import com.lti.dream.exception.VehicleNotFoundException;
 @Service("VehService")
 
 public class VehServiceImpl implements VehService{
@@ -16,7 +17,7 @@ public class VehServiceImpl implements VehService{
 	 
 	 
 	@Override
-	public List<Vehicle> getAllveh() {
+	public List<Vehicle> getAllveh() throws VehicleNotFoundException{
 		// TODO Auto-generated method stub
 		System.out.println("service layer");
 		List<Vehicle>myList= dao.getAllveh();
