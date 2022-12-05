@@ -53,22 +53,17 @@ public class UserController   {
     }
 	
 	//http://localhost:8989/user/updateuserpswd/{uId}
-	@PutMapping("/updateuserpswd/{uId}")
-	public boolean updateUserPswd(@PathVariable("uId") int uId, @RequestBody User u){
-	    return userService.updateUserPswd(uId, u);
-	}
+//	@PutMapping("/updateuserpswd/{uId}")
+//	public boolean updateUserPswd(@PathVariable("uId") int uId, @RequestBody User u){
+//	    return userService.updateUserPswd(uId, u);
+//	}
+//	
+//	//http://localhost:8989/user/deleteuser/{uId}
+//	@DeleteMapping("/deleteuser/{uId}")
+//	public User deleteUser(@PathVariable("uId") int uId) {
+//	    return userService.deleteUser(uId);
+//	}
 	
-	//http://localhost:8989/user/deleteuser/{uId}
-	@DeleteMapping("/deleteuser/{uId}")
-	public User deleteUser(@PathVariable("uId") int uId) {
-	    return userService.deleteUser(uId);
-	}
-	
-	//http://localhost:8989/user/userlogin/{userId}/{userPswd}
-	@GetMapping("/userlogin/{userId}/{userPswd}")
-	public boolean checkUserLogin(@PathVariable("userId") int userId,@PathVariable("userPswd") String userPswd){
-		return userService.checkUserLogin(userId, userPswd);
-	}
 }
 
 	

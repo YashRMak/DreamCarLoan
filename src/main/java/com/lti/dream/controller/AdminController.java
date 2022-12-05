@@ -48,17 +48,14 @@ public class AdminController   {
 		}
 		return null;
 	}
-    //http://localhost:8989/admin/updateadmin/{aid}
-	@PutMapping("/updateadmin/{aid}")
-	public boolean updateAdminPswd(@PathVariable("aid") int aid, @RequestBody Admin a){
-		return adminService.updateAdminPswd(aid, a);
-	}
 	
-	//http://localhost:8989/admin/adminlogin/{adminId}/{adminPswd}
-	@GetMapping("/adminlogin/{adminId}/{adminPswd}")
-	public boolean checkAdminLogin(@PathVariable("adminId") int adminId, @PathVariable("adminPswd") String adminPswd){
-		return adminService.checkAdminLogin(adminId, adminPswd);
-	}
+	
+//    //http://localhost:8989/admin/updateadmin/{aid}
+//	@PutMapping("/updateadmin/{aid}")
+//	public boolean updateAdminPswd(@PathVariable("aid") int aid, @RequestBody Admin a){
+//		return adminService.updateAdminPswd(aid, a);
+//	}
+//	
 }
 
 	

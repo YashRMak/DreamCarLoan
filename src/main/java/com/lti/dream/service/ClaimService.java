@@ -24,5 +24,4 @@ public interface ClaimService {
 	public List<Claim> rejectedList()throws ClaimNotFoundException;
 	
 	
-	
 }

@@ -58,6 +58,4 @@ public class admin {
 		Assertions.assertThat(adminService.findAdminById(125)).isNull();
 	}
 
-	
-
 }

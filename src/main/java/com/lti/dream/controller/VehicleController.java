@@ -42,11 +42,13 @@ public class VehicleController {
 		return VehService.addVehicle(v);
 	}
 		
+	
+		
 	//http://localhost:8989/vehicle/updateveh/101
-	@PutMapping("/updateveh/{vId}")
-	public boolean updatevehPrice(@PathVariable("vId") int vId, @RequestBody Vehicle v) {
-		return VehService.updatevehPrice(vId,v);
-	}
+//	@PutMapping("/updateveh/{vId}")
+//	public boolean updatevehPrice(@PathVariable("vId") int vId, @RequestBody Vehicle v) {
+//		return VehService.updatevehPrice(vId,v);
+//	}
 	
 }
 		

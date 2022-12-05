@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/claims")
 public class ClaimController {
+	
 	@Autowired
 	ClaimServiceImpl claimService;
 	
@@ -52,11 +53,6 @@ public class ClaimController {
 		return null;
 	}
 		
-	//http://localhost:8989/claims/updateclaim/{appNo}
-	@PutMapping("/updateclaim/{appNo}")
-	public boolean updateStatus(@PathVariable("appNo") int appNo, @RequestBody Claim c) {
-		return claimService.updateStatus(appNo, c);
-	}
 	
 	//http://localhost:8989/claims/deleteclaim/{appNo}
 	@DeleteMapping("/deleteclaim/{appNo}")
